@@ -11,10 +11,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.e4e5.R
+import com.example.e4e5.presentation.lobbydetails.LobbyDetailsScreen
 import com.example.e4e5.presentation.lobbylist.LobbyListScreen
 import com.example.e4e5.presentation.signin.SignInScreen
 import com.example.e4e5.presentation.ui.theme.E4E5Theme
@@ -89,6 +92,12 @@ class MainActivity : ComponentActivity() {
                                 navController = navController,
                                 signOut = ::googleSignOut
                             )
+                        }
+                        composable(
+                            route = Screen.LobbyDetailsScreen.route + "/{lobbyId}",
+                            arguments = listOf(navArgument("lobbyId") {type = NavType.StringType})
+                        ) {
+                            LobbyDetailsScreen()
                         }
                     }
                 }

@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.e4e5.domain.model.BoardTheme
-import com.example.e4e5.presentation.game.GameState
+import com.example.e4e5.presentation.game.UiGameState
 import com.github.bhlangonijr.chesslib.Board
 import com.github.bhlangonijr.chesslib.Side
 import com.github.bhlangonijr.chesslib.Square
@@ -30,7 +30,7 @@ import com.github.bhlangonijr.chesslib.Square
 fun BoardComposable(
     theme: BoardTheme,
     board: Board,
-    gameState: GameState,
+    gameState: UiGameState,
     onSquareClick: (Square) -> Unit,
     modifier: Modifier = Modifier,
 ) {

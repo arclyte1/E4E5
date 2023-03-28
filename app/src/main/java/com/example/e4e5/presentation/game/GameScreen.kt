@@ -16,10 +16,10 @@ fun GameScreen(
 ) {
     val theme = BoardThemeState.theme.collectAsState()
     Box(modifier = Modifier.fillMaxSize()) {
-        if (viewModel.gameState.value.isPromotion) {
+        if (viewModel.uiGameState.value.isPromotion) {
             PromotionDialog(
                 theme = theme.value,
-                playerSide = viewModel.gameState.value.playerSide,
+                playerSide = viewModel.uiGameState.value.playerSide,
                 promotionSelect = viewModel::onPromotionSelected,
                 undoPromotion = viewModel::undoPromotion,
             )
@@ -28,7 +28,7 @@ fun GameScreen(
         BoardComposable(
             theme = theme.value,
             board = viewModel.board.value,
-            gameState = viewModel.gameState.value,
+            gameState = viewModel.uiGameState.value,
             onSquareClick = viewModel::onSquareClick,
             modifier = Modifier.align(Alignment.Center)
         )
